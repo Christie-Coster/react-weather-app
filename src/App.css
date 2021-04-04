@@ -1,0 +1,33 @@
+.App {
+  background-image: linear-gradient(
+    to bottom,
+    #fcc5e4 0%,
+    #fda34b 15%,
+    #ff7882 35%,
+    #c8699e 52%,
+    #7046aa 71%,
+    #0c1db8 87%,
+    #020f75 100%
+  );
+  font-family: "Questrial", sans-serif;
+  color: white;
+  max-width: 800px;
+  margin: 20px auto;
+  border: none;
+  border-radius: 20px;
+  padding: 30px 40px;
+  text-align: center;
+}
+
+.App ul {
+  list-style: none;
+}
+.App #futureForecast {
+  margin-top: 70px;
+}
+
+.App footer {
+  margin-top: 70px;
+  text-align: center;
+  font-size: small;
+}
