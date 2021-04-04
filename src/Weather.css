@@ -1,0 +1,55 @@
+.Weather #weather-description {
+  line-height: 1.2;
+  margin-top: 70px;
+  font-size: 24px;
+}
+.Weather .fullTemp {
+  text-align: center;
+}
+.Weather #current-temp {
+  vertical-align: top;
+  font-size: 75px;
+}
+.Weather .degrees {
+  display: inline-block;
+  font-size: 20px;
+  padding-top: 15px;
+}
+.Weather .celsius {
+  color: #0c1db8;
+}
+.Weather .fahrenheit {
+  color: white;
+}
+.Weather #fahrenheit-button,
+.Weather #celsius-button {
+  font-weight: bolder;
+  text-decoration: none;
+  background: none;
+  border: none;
+}
+.Weather #current-weather {
+  font-weight: bolder;
+  text-align: left;
+}
+.Weather #current-weather:first-letter {
+  text-transform: capitalize;
+}
+.Weather #current-emoji {
+  font-size: 75px;
+}
+.Weather .humidity {
+  font-size: 15px;
+  padding: 10px 0 5px 0;
+  text-align: left;
+}
+.Weather .wind {
+  font-size: 15px;
+  padding: 5px 0 5px 0;
+  text-align: left;
+}
+.Weather .highLow {
+  font-size: 15px;
+  padding-top: 5px;
+  text-align: left;
+}

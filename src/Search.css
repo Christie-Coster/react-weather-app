@@ -1,0 +1,18 @@
+.Search .citySearch,
+.Search .searchButton,
+#location-button {
+  border: 3px solid #020f75;
+  border-radius: 5px;
+  margin: 1px;
+}
+.Search .searchButton {
+  color: white;
+  background: #020f75;
+}
+.Search .searchButton:hover {
+  color: white;
+  background: #7046aa;
+  border-color: #7046aa;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
