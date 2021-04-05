@@ -2,3 +2,7 @@
   text-align: center;
   font-size: small;
 }
+
+.Footer a {
+  color: rgb(4, 232, 248);
+}
