@@ -12,7 +12,7 @@ export default function App() {
     return (
         <div className="App">
             <Search />
-            <Weather defaultCity={"Moab"}/>
+            <Weather defaultCity={"Paris"}/>
             <div className="row" id="futureForecast">
                 <div className="col-1" />
                 <div className="col-2">

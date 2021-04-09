@@ -2,11 +2,25 @@ import React, {useState} from "react";
 import axios from "axios";
 import "./Weather.css";
 import Headers from "./Headers";
-import Emoji from "./Emoji"
 
 export default function Weather(props) {
     const [currentWeather, setCurrentWeather] = useState({ready: false});
-
+    let currentEmoji = (null)
+        if (currentWeather.conditions === "Clouds") {
+            currentEmoji = "☁️";
+        } else if (currentWeather.conditions === "Clear") {
+            currentEmoji = "☀️";
+        } else if (currentWeather.conditions === "Snow") {
+            currentEmoji = "❄️";
+        } else if (currentWeather.conditions === "Rain") {
+            currentEmoji = "🌧";
+        } else if (currentWeather.conditions === "Drizzle") {
+            currentEmoji= "☔️";
+        } else if (currentWeather.conditions === "Thunderstorm") {
+            currentEmoji = "🌩";
+        } else {
+            currentEmoji = "🌫";
+        }
     function handleResponse(response) {
         console.log(response)
         setCurrentWeather ({
@@ -47,7 +61,7 @@ export default function Weather(props) {
                     </div>
                     <div className="col-4">
                         <span className="emoji" id="current-emoji">
-                            <Emoji conditions={currentWeather.conditions}/>
+                            {currentEmoji}
                         </span>
                     </div>
                     <div className="col-4">
