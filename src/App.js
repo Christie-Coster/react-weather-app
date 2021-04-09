@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./App.css";
-
 import Headers from "./Headers.js";
 import Search from "./Search.js";
 import Weather from "./Weather.js";
@@ -21,15 +20,7 @@ export default function App() {
                 hours={12}
                 minuites={30}
             />
-            <Weather
-                temperature={75}
-                emoji={"☀️"}
-                conditions={"Sunny"}
-                humidity={"50"}
-                speed={22}
-                high={50}
-                low={40}
-            />
+            <Weather defaultCity={"Paris"}/>
             <div className="row" id="futureForecast">
                 <div className="col-1" />
                 <div className="col-2">
