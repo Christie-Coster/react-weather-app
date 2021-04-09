@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import "./Weather.css";
 import Headers from "./Headers";
+import Emoji from "./Emoji"
 
 export default function Weather(props) {
     const [currentWeather, setCurrentWeather] = useState({ready: false});
@@ -13,8 +14,8 @@ export default function Weather(props) {
             city: response.data.name,
             date: new Date(response.data.dt * 1000),
             temperature: Math.round(response.data.main.temp),
-            emoji: "☀️",
             forecast: response.data.weather[0].description,
+            conditions: response.data.weather[0].main,
             humidity: response.data.main.humidity,
             speed: Math.round(response.data.wind.speed),
             high:  Math.round(response.data.main.temp_max),
@@ -46,7 +47,7 @@ export default function Weather(props) {
                     </div>
                     <div className="col-4">
                         <span className="emoji" id="current-emoji">
-                            {currentWeather.emoji}
+                            <Emoji conditions={currentWeather.conditions}/>
                         </span>
                     </div>
                     <div className="col-4">
