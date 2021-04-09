@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./App.css";
-import Headers from "./Headers.js";
+
 import Search from "./Search.js";
 import Weather from "./Weather.js";
 import Forecast from "./Forecast.js";
@@ -12,14 +12,6 @@ export default function App() {
     return (
         <div className="App">
             <Search />
-            <Headers
-                city={"Moab"}
-                day={"Sunday"}
-                month={"January"}
-                date={1}
-                hours={12}
-                minuites={30}
-            />
             <Weather defaultCity={"Paris"}/>
             <div className="row" id="futureForecast">
                 <div className="col-1" />

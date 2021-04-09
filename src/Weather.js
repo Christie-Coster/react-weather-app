@@ -1,13 +1,17 @@
 import React, {useState} from "react";
-import "./Weather.css";
 import axios from "axios";
+import "./Weather.css";
+import Headers from "./Headers";
 
 export default function Weather(props) {
     const [currentWeather, setCurrentWeather] = useState({ready: false});
 
     function handleResponse(response) {
+        console.log(response)
         setCurrentWeather ({
             ready: true,
+            city: response.data.name,
+            date: new Date(response.data.dt * 1000),
             temperature: Math.round(response.data.main.temp),
             emoji: "☀️",
             forecast: response.data.weather[0].description,
@@ -20,6 +24,8 @@ export default function Weather(props) {
     
     if (currentWeather.ready) {
         return (
+        <div>
+            <Headers city={currentWeather.city} date={currentWeather.date}  />
             <div className="Weather">
                 <div className="row todaysConditions" id="weather-description">
                     <div className="col-4 fullTemp">
@@ -65,6 +71,7 @@ export default function Weather(props) {
                     </div>
                 </div>
             </div>
+        </div>
         );
     } else {
         const apiKey = "f78eec04b621104e9165191859d3da15"
