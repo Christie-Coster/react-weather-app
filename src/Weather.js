@@ -1,5 +1,6 @@
 import React from "react";
 import "./Weather.css";
+import WeatherTemperature from "./WeatherTemperature";
 
 
 export default function Weather(props) {
@@ -23,20 +24,7 @@ export default function Weather(props) {
             <div className="Weather">
                 <div className="row todaysConditions" id="weather-description">
                     <div className="col-4 fullTemp">
-                        <span id="current-temp">{props.data.temperature}</span>
-                        <span className="degrees">
-                            <a
-                                className="fahrenheit"
-                                id="fahrenheit-button"
-                                href="/"
-                            >
-                                ºF
-                            </a>
-                            /
-                            <a className="celsius" id="celsius-button" href="/">
-                                ºC
-                            </a>
-                        </span>
+                        <WeatherTemperature fahrenheit={props.data.temperature} />
                     </div>
                     <div className="col-4">
                         <span className="emoji" id="current-emoji">

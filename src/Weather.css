@@ -6,23 +6,23 @@
 .Weather .fullTemp {
   text-align: center;
 }
-.Weather #current-temp {
+.WeatherTemperature #current-temp {
   vertical-align: top;
   font-size: 75px;
 }
-.Weather .degrees {
+.WeatherTemperature .degrees {
   display: inline-block;
   font-size: 20px;
   padding-top: 15px;
 }
-.Weather .celsius {
+.WeatherTemperature .celsius {
   color: #0c1db8;
 }
-.Weather .fahrenheit {
+.WeatherTemperature .fahrenheit {
   color: white;
 }
-.Weather #fahrenheit-button,
-.Weather #celsius-button {
+.WeatherTemperature #fahrenheit-button,
+.WeatherTemperature #celsius-button {
   font-weight: bolder;
   text-decoration: none;
   background: none;
