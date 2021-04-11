@@ -11,7 +11,7 @@ export default function Headers(props) {
                   "Friday",
                   "Saturday"
         ];
-      let day = days[props.date.getDay()];
+      let day = days[props.data.date.getDay()];
         let months = [
                 "January",
                 "February",
@@ -26,20 +26,20 @@ export default function Headers(props) {
                 "November",
                 "December"
         ];
-      let month = months[props.date.getMonth()];
-      let date = props.date.getDate();
-      let hours = props.date.getHours();
+      let month = months[props.data.date.getMonth()];
+      let date = props.data.date.getDate();
+      let hours = props.data.date.getHours();
         if (hours < 10) {
                 hours = `0${hours}`;
         }
-    let minutes = props.date.getMinutes();
+    let minutes = props.data.date.getMinutes();
         if (minutes < 10) {
         minutes = `0${minutes}`;
         }
     return (
           <div className="headers">
             <h1>
-              <span id="city-name">{props.city}</span>
+              <span id="city-name">{props.data.city}</span>
             </h1>
             <h2 id="date-time">
               <span id="date">
