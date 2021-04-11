@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import axios from "axios";
 
 import "./App.css";
+import "./Search.css";
 
-import Search from "./Search.js";
 import Weather from "./Weather.js";
 import Forecast from "./Forecast.js";
 import Footer from "./Footer.js";
@@ -12,6 +12,7 @@ import Headers from "./Headers";
 
 export default function App() {
     const [currentWeather, setCurrentWeather] = useState({ready: false});
+    const [city, setCity] = useState("Moab")
     function handleResponse(response) {
         console.log(response)
         setCurrentWeather ({
@@ -28,10 +29,51 @@ export default function App() {
         });
     }
     
+    function search(){
+    const apiKey = "f78eec04b621104e9165191859d3da15"
+        let unit = "imperial";
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=${unit}`;
+        axios.get(`${apiUrl}`).then(handleResponse);
+  }
+  function handleFormSubmit(event){
+    event.preventDefault();
+    search();
+  }
+  function handleCityChange(event){
+    setCity(event.target.value);
+  }
     if (currentWeather.ready) {
         return (
         <div className="App">
-            <Search />
+            <div className="Search">
+                <form id="search-form" onSubmit={handleFormSubmit}>
+                    <div className="row">
+                    <div className="col-12">
+                        <div className="input-group mb-3" id="search-form">
+                        <input
+                            id="search-input"
+                            type="search"
+                            className="form-control citySearch"
+                            placeholder="Enter city name"
+                            autoComplete="off"
+                            autoFocus="on"
+                            onChange={handleCityChange}
+                        />
+                        <button className="btn searchButton">
+                            <span role="img" aria-label="search">
+                            🔍
+                            </span>
+                        </button>
+                        <button className="btn searchButton" id="location-button">
+                            <span role="img" aria-label="pin">
+                            📍
+                            </span>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+                </div>
             <Headers data={currentWeather}  />
             <Weather data={currentWeather} />
             <div className="row" id="futureForecast">
@@ -56,12 +98,8 @@ export default function App() {
             <Footer />
         </div>
     );
-    } else { 
-        const apiKey = "f78eec04b621104e9165191859d3da15"
-        let unit = "imperial";
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Dubai&APPID=${apiKey}&units=${unit}`;
-        axios.get(`${apiUrl}`).then(handleResponse);
-
+    } else {
+        search()
         return( "Loading..."
         )
     }
