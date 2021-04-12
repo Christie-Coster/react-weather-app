@@ -17,6 +17,7 @@ export default function App() {
         console.log(response)
         setCurrentWeather ({
             ready: true,
+            coordinates: response.data.coord,
             city: response.data.name,
             date: new Date(response.data.dt * 1000),
             temperature: Math.round(response.data.main.temp),
@@ -25,7 +26,7 @@ export default function App() {
             humidity: response.data.main.humidity,
             speed: Math.round(response.data.wind.speed),
             high:  Math.round(response.data.main.temp_max),
-            low:  Math.round(response.data.main.temp_min)          
+            low:  Math.round(response.data.main.temp_min),        
         });
     }
     
@@ -34,14 +35,14 @@ export default function App() {
         let unit = "imperial";
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=${unit}`;
         axios.get(`${apiUrl}`).then(handleResponse);
-  }
-  function handleFormSubmit(event){
+    }
+    function handleFormSubmit(event){
     event.preventDefault();
     search();
-  }
-  function handleCityChange(event){
+    }
+    function handleCityChange(event){
     setCity(event.target.value);
-  }
+    }
     if (currentWeather.ready) {
         return (
         <div className="App">
@@ -76,30 +77,12 @@ export default function App() {
                 </div>
             <Headers data={currentWeather}  />
             <Weather data={currentWeather} />
-            <div className="row" id="futureForecast">
-                <div className="col-1" />
-                <div className="col-2">
-                    <Forecast day={"Mon"} emoji={"🌤"} high={60} low={50} />
-                </div>
-                <div className="col-2">
-                    <Forecast day={"Tue"} emoji={"⛅️"} high={50} low={40} />
-                </div>
-                <div className="col-2">
-                    <Forecast day={"Wed"} emoji={"🌧"} high={40} low={30} />
-                </div>
-                <div className="col-2">
-                    <Forecast day={"Thu"} emoji={"☔️"} high={30} low={20} />
-                </div>
-                <div className="col-2">
-                    <Forecast day={"Fri"} emoji={"❄️"} high={20} low={10} />
-                </div>
-                <div className="col-1" />
-            </div>
+            <Forecast data={currentWeather} />
             <Footer />
         </div>
     );
     } else {
-        search()
+        search();
         return( "Loading..."
         )
     }
