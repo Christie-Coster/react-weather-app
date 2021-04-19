@@ -65,11 +65,6 @@ export default function App() {
                             🔍
                             </span>
                         </button>
-                        <button className="btn searchButton" id="location-button">
-                            <span role="img" aria-label="pin">
-                            📍
-                            </span>
-                        </button>
                         </div>
                     </div>
                     </div>

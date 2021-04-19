@@ -1,6 +1,5 @@
 .App .citySearch,
-.App .searchButton,
-#location-button {
+.App .searchButton {
   border: 3px solid #020f75;
   border-radius: 5px;
   margin: 1px;
